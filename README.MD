@@ -30,7 +30,9 @@ HTML/CSS: Para la estructura y el estilo.
 1. ProductsComponent
 
 🔢 Permite seleccionar un producto desde un desplegable.
+
 🔑 Muestra el código y el precio unitario del producto seleccionado.
+
 🛒 Permite especificar la cantidad del producto y agregarlo al detalle de la factura.
 
 
@@ -38,7 +40,9 @@ HTML/CSS: Para la estructura y el estilo.
 2. DetailComponent
 
 🗊1 Muestra una tabla con el detalle de los productos agregados a la factura.
+
 📈 Incluye columnas para el código, nombre, precio unitario, cantidad, subtotal y acción para eliminar productos.
+
 🔄 Se actualiza en tiempo real al agregar o eliminar productos.
 
 
