@@ -1,6 +1,4 @@
 import { LitElement, html, css } from "lit";
-/*import 'boostrap/dist/css/boostrap.min.css';
-import 'boostrap/dist/js/boostrap.min.js';*/
 
 class UserComponent extends LitElement {
   static properties = {

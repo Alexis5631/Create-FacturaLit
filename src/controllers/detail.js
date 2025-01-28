@@ -1,6 +1,9 @@
 // Array para almacenar los detalles del producto
 const detailData = [];
 
+/**
+ * Agregar o actualizar un producto en los detalles
+ */
 export function addProductToDetail(product) {
   const existingProduct = detailData.find((item) => item.cod === product.cod);
 
@@ -14,47 +17,44 @@ export function addProductToDetail(product) {
     });
   }
 
-  console.log("Detalles actualizados:", detailData);
-
   // Emitir evento para actualizar la tabla en la interfaz
   const event = new CustomEvent("detailUpdated", {
-    detail: [...detailData] // Pasar una copia para evitar referencias compartidas
+    detail: [...detailData], // Pasar una copia para evitar referencias compartidas
   });
   document.dispatchEvent(event);
 }
 
 /**
- * Eliminar un producto de la tabla de detalles por su código.
- * @param {string} cod - Código del producto a eliminar
+ * Eliminar un producto de los detalles
  */
 export function removeProductFromDetail(cod) {
   const index = detailData.findIndex((item) => item.cod === cod);
 
   if (index !== -1) {
-    detailData.splice(index, 1); // Eliminar producto del array
+    detailData.splice(index, 1);
 
-    // Emitir evento para actualizar la tabla en la interfaz
+    // Emitir evento para actualizar la tabla
     const event = new CustomEvent("detailUpdated", {
-      detail: [...detailData] // Pasar una copia para evitar referencias compartidas
+      detail: [...detailData],
     });
     document.dispatchEvent(event);
   }
 }
 
 /**
- * Obtener todos los detalles del producto.
- * @returns {Array} - Array con los detalles de los productos
+ * Obtener todos los detalles
  */
 export function getInvoiceDetails() {
-  return [...detailData]; // Retornar una copia del array
+  return [...detailData];
 }
 
 /**
- * Limpiar todos los datos del detalle.
+ * Limpiar todos los detalles
  */
 export function clearDetails() {
-  detailData.length = 0; // Vaciar el array
+  detailData.length = 0;
 
-  // Emitir evento para limpiar la tabla en la interfaz
-  document.dispatchEvent(new CustomEvent("detailUpdated", { detail: [] }));
+  // Emitir evento para limpiar la tabla
+  const event = new CustomEvent("detailUpdated", { detail: [] });
+  document.dispatchEvent(event);
 }

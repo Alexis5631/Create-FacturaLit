@@ -1,3 +1,5 @@
+import { getInvoiceDetails } from "./detail.js";
+
 export function calculateSummary(component) {
     const subtotalInput = component.shadowRoot.querySelector("#subtotal");
     const ivaInput = component.shadowRoot.querySelector("#iva");

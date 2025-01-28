@@ -5,8 +5,6 @@ export function listProduct(productsComponent) {
   const codeInput = productsComponent.shadowRoot.querySelector('input[id="productIdInput"]');
   const valueInput = productsComponent.shadowRoot.querySelector('input[id="unitaryValue"]');
 
-  console.log("Base de datos de productos:", dataBase); // Verificar que los productos estén cargados
-
   // Llenar el select con los productos
   dataBase.forEach(element => {
     const option = document.createElement("option");
@@ -30,12 +28,8 @@ export function listProduct(productsComponent) {
       }
     } else {
       // Restablecer campos si no se selecciona un producto
-      codeInput.value = "cod";
-      valueInput.value = "value";
+      codeInput.value = "";
+      valueInput.value = "";
     }
-
-    
   });
-
-  
 }

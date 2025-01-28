@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "lit";
 import { removeProductFromDetail } from "../controllers/detail.js";
 
+
 export class DetailComponent extends LitElement {
   static properties = {
     details: { type: Array },
@@ -13,16 +14,12 @@ export class DetailComponent extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-
-    // Escuchar los eventos del DOM global
     document.addEventListener("detailUpdated", this.updateDetails.bind(this));
     document.addEventListener("clearDetail", this.clearDetails.bind(this));
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-
-    // Eliminar listeners para evitar fugas de memoria
     document.removeEventListener("detailUpdated", this.updateDetails.bind(this));
     document.removeEventListener("clearDetail", this.clearDetails.bind(this));
   }
@@ -66,12 +63,7 @@ export class DetailComponent extends LitElement {
                       <tr>
                         <td>${product.cod}</td>
                         <td>${product.product}</td>
-                        <td>
-                          ${product.price.toLocaleString("es-CO", {
-                            style: "currency",
-                            currency: "COP",
-                          })}
-                        </td>
+                        <td>${product.price}</td>
                         <td>${product.quantity}</td>
                         <td>$${product.subtotal.toFixed(2)}</td>
                         <td>
